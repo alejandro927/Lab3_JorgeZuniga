@@ -86,19 +86,24 @@ int* ordenamientoRBB(int arr[],bool bandera,int n) {
 	}
 }
 
-int* ejercicio3(int* num,int tam) {
-	int* segundoArreglo = new int [tam];
-	for(int i=0;i<tam;i++){
-		
-	}
-	ordenamientoRBB(segundoArreglo,true,tam);
-	for(int i=0; i<tam; i++) {
-		int aux=0;
-		for(int j=0; j<tam; j++) {
-			
+int* ejercicio3(int* arr,int tam) {
+	
+	int* temporal = new int [tam];
+	int* segundoArreglo = ordenamientoRBB(arr,true,tam);
+	
+	for(int i = 0; i < tam; i++) 
+	{
+		for(int j = 0; j < tam; j++) 
+		{
+			if(segundoArreglo[i] == arr[j])
+			{
+				temporal[i] = j;
+				arr[j]= -1;
+				break;
+			}
 		}
 	}
-	return segundoArreglo;
+	return temporal;
 }
 
 int main(int argc, char** argv) {
@@ -153,27 +158,31 @@ int main(int argc, char** argv) {
 				int* arreglo = new int[tam];
 				
 				for(int i=0; i<tam; i++) {
-					int num=0;
+					int num = 0;
 					cout<<"ingrese el numero:";
 					cin>> num;
+					while(num < 0){
+						cout<<"Numero no valido,ingrese nuevamente:";
+						cin>> num;
+					}
 					arreglo[i] = num;
 				}
 				for(int i=0;i<tam;i++){
 					cout<<arreglo[i]<<" ";
 				}
-				cout<<endl;
+				cout<<"  =  ";
 				//int* c = ejercicio3(arreglo,tam);
 				int* c = ordenamientoRBB(arreglo,true,tam);
+				
 				for(int i=0;i<tam;i++){
 					cout<<c[i]<<" ";
 				}
 				cout<<endl;
-
 			}
 			break;
 
 			case 4: {
-
+				cout<<"No lo logre hacer :c";
 
 			}
 			break;
